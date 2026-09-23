@@ -257,9 +257,9 @@
 
     <div class="frame" id="frame" aria-label="One piece of footage framed for a 16:9 hero film, a 9:16 TikTok, a 1:1 feed post and a 4:5 Instagram post">
       <div class="scene" id="scene">
-        <div class="clip on"><iframe data-start="21" src="https://www.youtube.com/embed/iys_ipZP5eM?start=21&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Swarmz: The Time Has Come" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
-        <div class="clip"><iframe data-start="0" src="https://www.youtube.com/embed/FOQSWCoBkYU?autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Birmingham City Council" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
-        <div class="clip"><iframe data-start="11" src="https://www.youtube.com/embed/p2G7aAk-zvU?start=11&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Calamari" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
+        <div class="clip on"><iframe data-start="18" src="https://www.youtube.com/embed/iys_ipZP5eM?start=18&amp;cc_load_policy=0&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Swarmz: The Time Has Come" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
+        <div class="clip"><iframe data-start="0" src="https://www.youtube.com/embed/649qeuHq-kA?start=0&amp;cc_load_policy=0&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="HSBC" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
+        <div class="clip"><iframe data-start="8" src="https://www.youtube.com/embed/p2G7aAk-zvU?start=8&amp;cc_load_policy=0&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;modestbranding=1&amp;iv_load_policy=3&amp;disablekb=1&amp;enablejsapi=1" title="Calamari" tabindex="-1" allow="autoplay; encrypted-media" loading="lazy"></iframe></div>
       </div>
       <div class="grain"></div>
       <div class="crop c169 on" data-crop><b>16:9 · Hero film</b></div>
@@ -513,7 +513,7 @@
   window.onYouTubeIframeAPIReady=function(){
     clips.forEach(function(c){
       var f=c.querySelector('iframe'),st=+f.dataset.start||0;
-      new YT.Player(f,{events:{onStateChange:function(e){if(e.data===YT.PlayerState.ENDED){e.target.seekTo(st,true);e.target.playVideo();}}}});
+      new YT.Player(f,{events:{onReady:function(e){try{e.target.unloadModule('captions');}catch(x){}},onStateChange:function(e){if(e.data===YT.PlayerState.ENDED){e.target.seekTo(st,true);e.target.playVideo();}}}});
     });
   };
   var yt=document.createElement('script');yt.src='https://www.youtube.com/iframe_api';document.head.appendChild(yt);
